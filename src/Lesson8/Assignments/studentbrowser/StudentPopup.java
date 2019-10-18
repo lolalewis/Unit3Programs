@@ -5,15 +5,16 @@
  */
 package Lesson8.Assignments.studentbrowser;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author lola1590
  */
 public class StudentPopup extends javax.swing.JDialog {
 
-    /**
-     * Creates new form StudentPopup
-     */
+    Student temp;
+    
     public StudentPopup(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -96,12 +97,39 @@ public class StudentPopup extends javax.swing.JDialog {
 
     private void btnokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnokActionPerformed
         // TODO add your handling code here:
+        int marks[] = new int[3];
+        String name = txtname.getText();
+        try{
+            marks[0] = Integer.parseInt(tblmarks.getValueAt(0, 0).toString());
+            marks[1] = Integer.parseInt(tblmarks.getValueAt(0, 1).toString());
+            marks[2] = Integer.parseInt(tblmarks.getValueAt(0, 2).toString());
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this,"Fill out all fields\n (press <enter> on each mark");
+            return;
+        }
+        temp = new Student (name,marks);
         this.dispose();
+        
     }//GEN-LAST:event_btnokActionPerformed
 
     /**
      * @param args the command line arguments
      */
+     public void setForm(Student s){
+            //put student name in name box
+            txtname.setText(s.getName());
+            //put 3 marks onto table
+            for (int i = 0; i < 3; i++) {
+             tblmarks.setValueAt(s.getMark(i+1), 0, i);
+         }
+            
+        }
+    
+    public Student getStudent(){
+                return temp;
+            }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
