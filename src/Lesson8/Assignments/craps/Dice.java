@@ -1,4 +1,3 @@
-
 package Lesson8.Assignments.craps;
 
 
@@ -92,8 +91,7 @@ public class Dice {
     
     private void draw1(){
         g.fillOval(pos1, pos1, dotSize, dotSize); //dot 1 , r1
-    }
-    
+    }   
     private void draw2(){
         g.fillOval(pos3, pos1, dotSize, dotSize);//dot 2, r1
     }

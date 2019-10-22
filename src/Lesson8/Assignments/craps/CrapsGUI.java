@@ -14,6 +14,8 @@ public class CrapsGUI extends javax.swing.JFrame {
     Craps game;
     int money;
     
+    Dice d1,d2;
+    
     public CrapsGUI() {
         initComponents();
         //new craps game that sends in 2 panels and size for 2 dice
@@ -34,11 +36,11 @@ public class CrapsGUI extends javax.swing.JFrame {
         d1Panel = new javax.swing.JPanel();
         d2Panel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        roll = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         outputBox = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        moneyLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -73,10 +75,10 @@ public class CrapsGUI extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton1.setText("Roll");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        roll.setText("Roll");
+        roll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                rollActionPerformed(evt);
             }
         });
 
@@ -93,7 +95,7 @@ public class CrapsGUI extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -103,21 +105,22 @@ public class CrapsGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(roll)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
 
+        outputBox.setEditable(false);
         outputBox.setColumns(20);
         outputBox.setRows(5);
         jScrollPane1.setViewportView(outputBox);
 
-        jLabel1.setBackground(new java.awt.Color(255, 51, 51));
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Money");
-        jLabel1.setToolTipText("");
-        jLabel1.setOpaque(true);
+        moneyLabel.setBackground(new java.awt.Color(255, 51, 51));
+        moneyLabel.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        moneyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        moneyLabel.setText("Money");
+        moneyLabel.setToolTipText("");
+        moneyLabel.setOpaque(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,7 +139,7 @@ public class CrapsGUI extends javax.swing.JFrame {
                 .addGap(122, 122, 122)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(moneyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -149,7 +152,7 @@ public class CrapsGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(moneyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
@@ -160,9 +163,10 @@ public class CrapsGUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        outputBox.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void rollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollActionPerformed
         // TODO add your handling code here:
         if(game.isNewGame()){
             //.setText will clear text area and put new message on the screen
@@ -170,12 +174,27 @@ public class CrapsGUI extends javax.swing.JFrame {
             money-=5; //charge $5 to play a new game
          }
         game.roll();
-        
+        //.append adds more text to a tet area
         outputBox.append("\nYou rolled a " + game.getTotal());
         if (game.hasWon()){
-            
+            outputBox.append("\nYou won - Click Roll to start a new Game");
+            //start a new game
+            game = new Craps (d1Panel.getGraphics(), d2Panel.getGraphics(),
+                              d1Panel.getWidth(), d2Panel.getWidth());
+            money+=10;
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        else if (game.hasLost()){
+            outputBox.append("\nYou lost - Click Roll to start a new Game");
+            //start a new game
+            game = new Craps (d1Panel.getGraphics(), d2Panel.getGraphics(),
+                              d1Panel.getWidth(), d2Panel.getWidth());
+        }
+        else {
+            outputBox.append("\nGame continues - roll a " + game.getPoint()
+                                   + " to win or 7 to lose");
+        }    
+        moneyLabel.setText("Money $" + money);
+    }//GEN-LAST:event_rollActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,11 +234,11 @@ public class CrapsGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel d1Panel;
     private javax.swing.JPanel d2Panel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel moneyLabel;
     private javax.swing.JTextArea outputBox;
+    private javax.swing.JButton roll;
     // End of variables declaration//GEN-END:variables
 }

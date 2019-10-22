@@ -43,13 +43,25 @@ public class Craps {
     }
     public boolean hasWon(){
         if(rollnum==1){
-           point = rollnum; 
+        
+        if(getTotal()==7)    {
+            
+        }
+        
+        if(getTotal()==11){
+            
+        }
+                
            } return false;
-    
+        
     }
     public boolean hasLost(){
         if(rollnum==1){
-            
+         if(getTotal()==7){
+             
+         }
+         
+         
     }return true;
 }
     
