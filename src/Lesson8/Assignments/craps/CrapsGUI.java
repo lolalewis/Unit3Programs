@@ -4,13 +4,15 @@
  * and open the template in the editor.
  */
 package Lesson8.Assignments.craps;
-
+import java.awt.Dimension;
+import javax.swing.ImageIcon;
 /**
  *
  * @author lola1590
  */
 public class CrapsGUI extends javax.swing.JFrame {
 
+    
     Craps game;
     int money;
     
@@ -22,6 +24,8 @@ public class CrapsGUI extends javax.swing.JFrame {
         game= new Craps(d1Panel.getGraphics(),d2Panel.getGraphics(),
                         d1Panel.getWidth(),d2Panel.getWidth());
         money=100;
+       
+        jLabel2.setIcon(new ImageIcon(""));
     }
 
     /**

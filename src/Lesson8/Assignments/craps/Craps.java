@@ -3,6 +3,7 @@ package Lesson8.Assignments.craps;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 
 public class Craps {
@@ -20,6 +21,9 @@ public class Craps {
         rollnum=0;
         point=0;
         newGame=true;
+        
+         ImageIcon ii = new ImageIcon("vegas.png");
+      
         
     }
     public void roll(){
