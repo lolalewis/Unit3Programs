@@ -11,6 +11,6 @@ public interface Shape {
     public void move(double xLoc, double yLoc);
     public void stretchBy(double factor);
     public String toString();
-    
+    public void erase(Pen p);
     
 }

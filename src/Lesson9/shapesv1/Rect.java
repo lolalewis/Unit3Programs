@@ -1,6 +1,7 @@
 package Lesson9.shapesv1;
 
 import TurtleGraphics.Pen;
+import java.awt.Color;
 
 public class Rect implements Shape {
     private double xPos,yPos;
@@ -54,5 +55,16 @@ public class Rect implements Shape {
        width*= factor;
        height *= factor;
     }
-    
+     public String toString(){
+        String str = "Rectangle\n=========\n";
+        str += " Xpos" + xPos + " YPos: " + yPos;
+        str+= "\nWidth: " + width + "Height: " + height;
+        str += String.format("\nArea: %.2f" , area());
+        return str;
+    }
+        public void erase(Pen p ) {
+        p.setColor(Color.white);
+        draw(p);
+        p.setColor(Color.blue);
+    }
 }
