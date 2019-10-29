@@ -5,7 +5,7 @@ import java.awt.Color;
 
 public class Rect extends Shape {
 
-    private double xPos, yPos;
+
     private double width, height;
 
     public Rect(double x, double y, double w, double h) {

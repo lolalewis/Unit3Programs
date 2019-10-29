@@ -4,7 +4,7 @@ package Lesson9.shapesv2;
 import TurtleGraphics.Pen;
 import java.awt.Color;
 
-//abstract = cant make sirect instance of shape
+//abstract = cant make direct instance of shape
  public abstract class Shape {
        protected double xPos, yPos;
        
