@@ -1,13 +1,30 @@
 package Lesson9.shapesv2;
 
+import TurtleGraphics.SketchPadWindow;
+import TurtleGraphics.StandardPen;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 
 public class ShapeMaker extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ShapesGUI
-     */
+StandardPen p;
+Shape s;
+    
     public ShapeMaker() {
         initComponents();
+        SketchPadWindow w = new SketchPadWindow(400,400);
+        w.setLocation(50,275);
+        p = new StandardPen(w);
+        s = new Circle(0,0,0);
+        
+        
+       
+        
+    }
+    private void erase(){
+        p.setColor(Color.white);
+        s.draw(p);
+        p.setColor(Color.blue);
     }
 
     /**
@@ -26,11 +43,11 @@ public class ShapeMaker extends javax.swing.JFrame {
         btnrect = new javax.swing.JButton();
         btntri = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnmove = new javax.swing.JButton();
+        btnresize = new javax.swing.JButton();
+        btnquit = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtfield = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,15 +55,45 @@ public class ShapeMaker extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel1.setText("Select a Shape");
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jPanel1AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         btncircle.setText("Circle");
+        btncircle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncircleActionPerformed(evt);
+            }
+        });
 
         btnwheel.setText("Wheel");
+        btnwheel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnwheelActionPerformed(evt);
+            }
+        });
 
         btnrect.setText("Rectangle");
+        btnrect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnrectActionPerformed(evt);
+            }
+        });
 
         btntri.setText("Triangle");
+        btntri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntriActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -57,7 +104,7 @@ public class ShapeMaker extends javax.swing.JFrame {
                 .addComponent(btncircle)
                 .addGap(27, 27, 27)
                 .addComponent(btnwheel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnrect)
                 .addGap(31, 31, 31)
                 .addComponent(btntri)
@@ -75,13 +122,19 @@ public class ShapeMaker extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton1.setText("Move");
+        btnmove.setText("Move");
+        btnmove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmoveActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Resize");
+        btnresize.setText("Resize");
 
-        jButton3.setText("Quit");
+        btnquit.setText("Quit");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -90,20 +143,20 @@ public class ShapeMaker extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnquit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnresize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnmove, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnmove)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnresize)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btnquit)
                 .addContainerGap())
         );
 
@@ -117,21 +170,19 @@ public class ShapeMaker extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jTextField1)))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addComponent(txtfield, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -144,18 +195,59 @@ public class ShapeMaker extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
+                    .addComponent(txtfield)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel1AncestorAdded
+
+    private void btncircleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncircleActionPerformed
+       erase();
+       s = new Circle(0,0,50);
+       s.draw(p);
+       txtfield.setText(s.toString());
+    }//GEN-LAST:event_btncircleActionPerformed
+
+    private void btnmoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoveActionPerformed
+       double x = Double.parseDouble(JOptionPane.showInputDialog(this, "Enter new x", "0"));
+       double y = Double.parseDouble(JOptionPane.showInputDialog(this, "Enter new y", "0"));
+       erase();
+       s.move(x,y);
+       s.draw(p);
+       txtfield.setText(s.toString());
+    }//GEN-LAST:event_btnmoveActionPerformed
+
+    private void btnwheelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnwheelActionPerformed
+       erase();
+       s = new Wheel(0,0,50,5);
+       s.draw(p);
+       txtfield.setText(s.toString());
+    }//GEN-LAST:event_btnwheelActionPerformed
+
+    private void btnrectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrectActionPerformed
+       erase();
+       s = new Rect(0,0,25,50);
+       s.draw(p);
+       txtfield.setText(s.toString());
+    }//GEN-LAST:event_btnrectActionPerformed
+
+    private void btntriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntriActionPerformed
+        erase();
+       s = new Triangle(0,0,25,25,10,10);
+       s.draw(p);
+       txtfield.setText(s.toString());
+    }//GEN-LAST:event_btntriActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,17 +287,17 @@ public class ShapeMaker extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncircle;
+    private javax.swing.JButton btnmove;
+    private javax.swing.JButton btnquit;
     private javax.swing.JButton btnrect;
+    private javax.swing.JButton btnresize;
     private javax.swing.JButton btntri;
     private javax.swing.JButton btnwheel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtfield;
     // End of variables declaration//GEN-END:variables
 }

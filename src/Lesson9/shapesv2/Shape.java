@@ -16,7 +16,7 @@ import java.awt.Color;
        abstract double area();      
        abstract void draw(Pen p);
        abstract void stretchBy(double factor);
-       
+       abstract double perimeter();
        
     public double getXPos() {
         return xPos;
@@ -42,4 +42,5 @@ import java.awt.Color;
          str += String.format("\nArea: %.2f" , area());
          return str;
      }
+     
 }

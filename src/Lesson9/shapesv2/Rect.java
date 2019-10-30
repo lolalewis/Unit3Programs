@@ -7,7 +7,8 @@ public class Rect extends Shape {
 
 
     private double width, height;
-
+    private double x,y,w,h;
+    
     public Rect(double x, double y, double w, double h) {
         super(x, y);
         width = w;
@@ -42,8 +43,14 @@ public class Rect extends Shape {
     public String toString() {
         String str = "Rectangle\n=========\n";
         str += "\nWidth: " + width + "Height: " + height;
+        str+= String.format("\nPerimeter: " + perimeter());
         str += super.toString();
         return str;
+    }
+
+    @Override
+    double perimeter() {
+       return (x + y + w + h);
     }
 
 }

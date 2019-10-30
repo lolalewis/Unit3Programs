@@ -37,11 +37,17 @@ public class Circle extends Shape {
     }
     
     public String toString(){
-        String str = "Circle\n=====\n";
-           str += String.format("\nArea: %.2f" , area());
+       String str = "Circle\n=========\n";
+       str += String.format("\nArea: %.2f" , area());
+       str +=  String.format("\nPerimeter: " + perimeter());
        str+=super.toString();
      
         return str;
+    }
+
+    @Override
+    double perimeter() {
+        return (Math.PI * radius * radius);
     }
    
 
