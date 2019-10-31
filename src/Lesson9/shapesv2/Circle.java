@@ -11,6 +11,12 @@ public class Circle extends Shape {
        super(x,y);
         radius = r;
     }
+    public Circle(){
+        super(); // call the shape deafalt constructor
+        radius = 10;
+    }
+   
+    
     @Override
     public double area() {
         return Math.PI * radius * radius;
@@ -37,9 +43,9 @@ public class Circle extends Shape {
     }
     
     public String toString(){
-       String str = "Circle\n=========\n";
-       str += String.format("\nArea: %.2f" , area());
-       str +=  String.format("\nPerimeter: " + perimeter());
+       String str =("Circle\n=========\n");
+       str += String.format("\nRadius %.2f" , radius);
+       str +=  String.format("\nPerimeter: %.2f" , perimeter());
        str+=super.toString();
      
         return str;

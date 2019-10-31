@@ -14,7 +14,10 @@ public class Wheel extends Circle {
         super(x, y, r); //call the Parent class constructor
         spokes = s;
     }
-    
+    public Wheel(){
+        super(); //call the Circle constructor, which will call the Shape
+        spokes = 5;
+    }
     //all methods from circle are available to wheel by default
     
     //some methods -> area, get x&y, stretchby, move are fine as is from circle

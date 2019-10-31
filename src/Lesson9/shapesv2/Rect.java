@@ -14,6 +14,11 @@ public class Rect extends Shape {
         width = w;
         height = h;
     }
+    public Rect () {
+        super();
+        width = 10;
+        height=10;
+    }
 
     @Override
     public double area() {
@@ -41,8 +46,8 @@ public class Rect extends Shape {
     }
 
     public String toString() {
-        String str = "Rectangle\n=========\n";
-        str += "\nWidth: " + width + "Height: " + height;
+        String str = String.format("Rectangle\n=========\n");
+        str += String.format("\nWidth: " + width + "Height: " + height);
         str+= String.format("\nPerimeter: " + perimeter());
         str += super.toString();
         return str;

@@ -6,11 +6,11 @@ import TurtleGraphics.Pen;
 
 public class Triangle extends Shape{  //extends Shape
    
-    private double x1, x2,x3, y1, y2, y3;
-    private double xPos2 ,xPos3, yPos2, yPos3;     
+    private double x1,x2,x3,y1,y2,y3;
+    private double xPos2,xPos3,yPos2,yPos3;     
     
     public Triangle(double x, double y, double xPos2, double yPos2 ,double xPos3, double yPos3){
-        super(x,y);
+       super(x,y);
        x2 = xPos2;
        x3 = xPos3;
        y2 = yPos2;
@@ -23,15 +23,22 @@ public class Triangle extends Shape{  //extends Shape
     }
 
     @Override
-    void draw(Pen p) {
-        p.setDirection(0);
-        p.down();
-        p.move(xPos, yPos);
+    void draw(Pen p) {     
         p.up();
-        p.move(xPos2, yPos2);
+        p.move(xPos, yPos);
         p.down();
+        p.move(xPos2, yPos2);
         p.move(xPos3, yPos3);
         p.move(xPos, yPos);
+    }
+    public void move(double xLoc, double yLoc, double xLoc2, double yLoc2, double xLoc3, double yLoc3){
+       xPos = xLoc;
+       yPos = yLoc;
+       xPos2 = xLoc2;
+       xPos3 = xLoc3;
+       yPos2 = yLoc2;
+       yPos3 = yLoc3;
+       
     }
 
     @Override
@@ -42,7 +49,7 @@ public class Triangle extends Shape{  //extends Shape
         y3 = (y3-yPos2) * factor + xPos2;
     }
      public String toString() {
-        String str = "Triangle\n=========\n";     
+        String str = String.format("Triangle\n=========\n");     
         str+= String.format("\nPerimeter: " + perimeter());
         str += super.toString();
         return str;

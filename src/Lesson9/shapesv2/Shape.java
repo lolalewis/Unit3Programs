@@ -12,13 +12,20 @@ import java.awt.Color;
            xPos = x;
            yPos = y;
        }
+       
+       public Shape(){
+           xPos =0;
+           yPos=0;
+       }
+       
       // like interface, children MUST implement it
        abstract double area();      
        abstract void draw(Pen p);
        abstract void stretchBy(double factor);
        abstract double perimeter();
        
-    public double getXPos() {
+       // final methods can NEVER be over ridden by children classes
+    final public double getXPos() {
         return xPos;
     }
 
@@ -32,13 +39,13 @@ import java.awt.Color;
      xPos  = xLoc;
      yPos = yLoc;
     }
-     public void erase(Pen p ) {
+    final public void erase(Pen p ) {
         p.setColor(Color.white);
         draw(p);
         p.setColor(Color.blue);
     }
      public String toString(){
-         String str = " Xpos" + xPos + " YPos: " + yPos;
+         String str = String.format("\nXpos" + xPos + " YPos: " + yPos);
          str += String.format("\nArea: %.2f" , area());
          return str;
      }
