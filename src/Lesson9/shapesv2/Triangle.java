@@ -25,10 +25,10 @@ public class Triangle extends Shape{  //extends Shape
     @Override
     void draw(Pen p) {     
         p.up();
-        p.move(xPos, yPos);
+        p.move(x2, yPos);
         p.down();
-        p.move(xPos2, yPos2);
-        p.move(xPos3, yPos3);
+        p.move(x2, y2);
+        p.move(x3, y3);
         p.move(xPos, yPos);
     }
     public void move(double xLoc, double yLoc, double xLoc2, double yLoc2, double xLoc3, double yLoc3){

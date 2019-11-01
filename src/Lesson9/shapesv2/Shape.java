@@ -24,8 +24,8 @@ import java.awt.Color;
        abstract void stretchBy(double factor);
        abstract double perimeter();
        
-       // final methods can NEVER be over ridden by children classes
-    final public double getXPos() {
+    // final methods can NEVER be over ridden by children classes
+    public final  double getXPos() {
         return xPos;
     }
 
