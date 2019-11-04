@@ -259,13 +259,14 @@ Shape s;
 
     private void btntriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntriActionPerformed
        erase();
-       s = new Triangle(100,100,100,250,50,50);
+       s = new Triangle(0,0,0,50,50,50);
        s.draw(p);
        txtfield.setText(s.toString());
+       
     }//GEN-LAST:event_btntriActionPerformed
 
     private void btnresizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresizeActionPerformed
-        
+              
     }//GEN-LAST:event_btnresizeActionPerformed
 
     /**

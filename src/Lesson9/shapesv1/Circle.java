@@ -82,5 +82,8 @@ public class Circle implements Shape {
         draw(p);
         
     }
+    public void resizeShape(){
+   
+    }
     
 }
