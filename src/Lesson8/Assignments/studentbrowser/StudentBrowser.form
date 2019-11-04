@@ -77,11 +77,11 @@
                           <Group type="102" attributes="0">
                               <Component id="lblcount" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="lblsize" min="-2" pref="34" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                               <Component id="lblindex" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel7" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="current" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
@@ -130,11 +130,11 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblcount" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel6" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="lblsize" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblindex" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel7" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="current" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -260,6 +260,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmodifyActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -391,7 +394,7 @@
         <Property name="text" type="java.lang.String" value="Count"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="lblsize">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -414,7 +417,7 @@
         <Property name="text" type="java.lang.String" value="Current Index"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
+    <Component class="javax.swing.JLabel" name="current">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="cc" red="cc" type="rgb"/>
