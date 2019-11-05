@@ -5,17 +5,24 @@
  */
 package Lesson9.Employee;
 
+import java.text.NumberFormat;
+
 /**
  *
  * @author lola1590
  */
 public class EmployeeApp extends javax.swing.JFrame {
-
+    
+    Employee emp[];
+    int size=0;
+    NumberFormat nf;
     /**
      * Creates new form EmployeeApp
      */
     public EmployeeApp() {
         initComponents();
+        emp= new Employee[10];
+        nf= NumberFormat.getCurrencyInstance();
     }
 
     /**
@@ -38,9 +45,9 @@ public class EmployeeApp extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtname = new javax.swing.JTextField();
+        txthours = new javax.swing.JTextField();
+        txtrate = new javax.swing.JTextField();
         btnquit = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
@@ -50,6 +57,7 @@ public class EmployeeApp extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Employee Type");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(99, 167, 111, 20);
@@ -128,25 +136,28 @@ public class EmployeeApp extends javax.swing.JFrame {
         jScrollPane1.setBounds(40, 326, 220, 191);
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Name:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 26, 41, 16);
 
         jLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Rate:");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(40, 73, 38, 18);
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Hours:");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(40, 123, 42, 16);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(99, 25, 159, 20);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(99, 74, 159, 20);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(99, 122, 159, 20);
+        getContentPane().add(txtname);
+        txtname.setBounds(99, 25, 159, 20);
+        getContentPane().add(txthours);
+        txthours.setBounds(99, 74, 159, 20);
+        getContentPane().add(txtrate);
+        txtrate.setBounds(99, 122, 159, 20);
 
         btnquit.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         btnquit.setText("Quit");
@@ -160,6 +171,7 @@ public class EmployeeApp extends javax.swing.JFrame {
         btnquit.setBounds(157, 277, 103, 21);
 
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Total Pay:");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(40, 536, 63, 16);
@@ -177,7 +189,7 @@ public class EmployeeApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbuttonActionPerformed
-        String type = buttonGroup1.getSelection().getActionCommand();
+        /*String type = buttonGroup1.getSelection().getActionCommand();
         if(type.equals("ft"))
             System.out.println("You chose full time");
         else if (type.equals("pt"))
@@ -185,7 +197,16 @@ public class EmployeeApp extends javax.swing.JFrame {
     }//GEN-LAST:event_addbuttonActionPerformed
 
     private void btnquitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquitActionPerformed
-        System.exit(0);
+        System.exit(0);*/
+        
+        Employee temp;
+        String nm, type;
+        int hours;
+        double rate;
+        try{
+            nm = txtname.getText();
+            
+        }
     }//GEN-LAST:event_btnquitActionPerformed
 
     /**
@@ -235,12 +256,12 @@ public class EmployeeApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JRadioButton rbft;
     private javax.swing.JRadioButton rbpt;
     private javax.swing.JTable tblemp;
+    private javax.swing.JTextField txthours;
+    private javax.swing.JTextField txtname;
+    private javax.swing.JTextField txtrate;
     // End of variables declaration//GEN-END:variables
 }
