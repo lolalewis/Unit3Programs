@@ -141,6 +141,11 @@ Shape s;
         });
 
         btnquit.setText("Quit");
+        btnquit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnquitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -227,7 +232,7 @@ Shape s;
     }//GEN-LAST:event_jPanel1AncestorAdded
 
     private void btncircleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncircleActionPerformed
-       erase();
+       s.erase(p);
        s = new Circle(0,0,50);
        s.draw(p);
        txtfield.setText(s.toString());
@@ -237,28 +242,28 @@ Shape s;
     private void btnmoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoveActionPerformed
        double x = Double.parseDouble(JOptionPane.showInputDialog(this, "Enter new x", "0"));
        double y = Double.parseDouble(JOptionPane.showInputDialog(this, "Enter new y", "0"));
-       erase();
+       s.erase(p);
        s.move(x,y);
        s.draw(p);
        txtfield.setText(s.toString());
     }//GEN-LAST:event_btnmoveActionPerformed
 
     private void btnwheelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnwheelActionPerformed
-       erase();
+       s.erase(p);
        s = new Wheel(0,0,50,5);
        s.draw(p);
        txtfield.setText(s.toString());
     }//GEN-LAST:event_btnwheelActionPerformed
 
     private void btnrectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrectActionPerformed
-       erase();
+       s.erase(p);
        s = new Rect(0,0,25,50);
        s.draw(p);
        txtfield.setText(s.toString());
     }//GEN-LAST:event_btnrectActionPerformed
 
     private void btntriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntriActionPerformed
-       erase();
+       s.erase(p);
        s = new Triangle(0,0,0,50,50,50);
        s.draw(p);
        txtfield.setText(s.toString());
@@ -266,8 +271,16 @@ Shape s;
     }//GEN-LAST:event_btntriActionPerformed
 
     private void btnresizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresizeActionPerformed
-              
+     double size = Double.parseDouble(JOptionPane.showInputDialog(this, "Enter size", "0"));
+     s.erase(p);
+     s.stretchBy(size);
+     s.draw(p);
+     txtfield.setText(s.toString());
     }//GEN-LAST:event_btnresizeActionPerformed
+
+    private void btnquitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquitActionPerformed
+     System.exit(0);
+    }//GEN-LAST:event_btnquitActionPerformed
 
     /**
      * @param args the command line arguments

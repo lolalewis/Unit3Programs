@@ -6,8 +6,7 @@ import java.awt.Color;
 public class Rect extends Shape {
 
 
-    private double width, height;
-    private double x,y,w,h;
+    private double width, height;   
     
     public Rect(double x, double y, double w, double h) {
         super(x, y);
@@ -55,7 +54,7 @@ public class Rect extends Shape {
 
     @Override
     double perimeter() {
-       return (x + y + w + h);
+       return (width+height)*2;
     }
 
 }
