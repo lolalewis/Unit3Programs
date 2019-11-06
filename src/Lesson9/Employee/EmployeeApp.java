@@ -203,10 +203,10 @@ public class EmployeeApp extends javax.swing.JFrame {
         String nm, type;
         int hours;
         double rate;
-        try{
-            nm = txtname.getText();
+        //try{
+         //  nm = txtname.getText();
             
-        }
+    //    }
     }//GEN-LAST:event_btnquitActionPerformed
 
     /**
