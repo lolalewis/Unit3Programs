@@ -63,6 +63,7 @@ public class EmployeeApp extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(316, 615));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 1, 14)); // NOI18N
@@ -194,7 +195,7 @@ public class EmployeeApp extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Lesson9/Employee/photo_backgrounds_textures_app04.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 0, 300, 580);
+        jLabel6.setBounds(0, 0, 320, 580);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
