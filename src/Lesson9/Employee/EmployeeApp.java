@@ -252,7 +252,7 @@ public class EmployeeApp extends javax.swing.JFrame {
         try{
             
         } catch(Exception e){
-         JOptionPane.showMessageDialog(this, "Must fill out form correctly");
+         JOptionPane.showMessageDialog(this, "Must not exceed 10 employees");
             return;
     }
 
