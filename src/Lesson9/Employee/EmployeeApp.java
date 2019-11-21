@@ -248,6 +248,13 @@ public class EmployeeApp extends javax.swing.JFrame {
             error += "Rate: " + Employee.getRateRules() + "\n";
         }
         JOptionPane.showMessageDialog(this, error);
+        
+        try{
+            
+        } catch(Exception e){
+         JOptionPane.showMessageDialog(this, "Must fill out form correctly");
+            return;
+    }
 
 
     }//GEN-LAST:event_addbuttonActionPerformed
